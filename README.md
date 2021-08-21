@@ -1,4 +1,4 @@
-#Adding authentication to an application is one of the most challenging 😖 but also a very important part for developers, but today I will teach you 🥰 how to do it, come on let's make an authentication page with me today in just 10 minutes ⚡.
+# Adding authentication to an application is one of the most challenging 😖 but also a very important part for developers, but today I will teach you 🥰 how to do it, come on let's make an authentication page with me today in just 10 minutes ⚡.
 
 1.Let's initialize npm and install all the necessary packages that we are going to use.
 
