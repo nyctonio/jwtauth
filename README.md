@@ -355,6 +355,3 @@ app.listen(port,()=>{
 ```
 
 Hurray!! You have successfully added authentication in your website 🥳🥳🥳🥳.
-
-
-
