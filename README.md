@@ -1,4 +1,4 @@
-# Adding authentication to an application is one of the most challenging 😖 but also a very important part for developers, but today I will teach you 🥰 how to do it, come on let's make an authentication page with me today in just 10 minutes ⚡.
+Adding authentication to an application is one of the most challenging 😖 but also a very important part for developers, but today I will teach you 🥰 how to do it, come on let's make an authentication page with me today in just 10 minutes ⚡.
 
 1.Let's initialize npm and install all the necessary packages that we are going to use.
 
@@ -28,7 +28,7 @@ const bcrypt = require('bcryptjs');
 const salt = 10;
 app.set('view engine', 'ejs');
 app.use(bodyparser.urlencoded({extended:true}));
-app.use(bodyparser.json());
+app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("public"));
 app.listen(port,()=>{
@@ -99,7 +99,7 @@ const bcrypt = require('bcryptjs');
 const salt = 10;
 app.set('view engine', 'ejs');
 app.use(bodyparser.urlencoded({extended:true}));
-app.use(bodyparser.json());
+app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("public"));
 
@@ -164,7 +164,7 @@ const verifyUserLogin = async (email,password)=>{
         }
         if(await bcrypt.compare(password,user.password)){
             // creating a JWT token
-            token = jwt.sign({id:user._id,username:user.email,type:'user'},JWT_SECRET)
+            token = jwt.sign({id:user._id,username:user.email,type:'user'},JWT_SECRET,{ expiresIn: '2h'})
             return {status:'ok',data:token}
         }
         return {status:'error',error:'invalid password'}
@@ -243,7 +243,7 @@ const bcrypt = require('bcryptjs');
 const salt = 10;
 app.set('view engine', 'ejs');
 app.use(bodyparser.urlencoded({extended:true}));
-app.use(bodyparser.json());
+app.use(express.json());
 app.use(cookieParser());
 app.use(express.static("public"));
 
@@ -293,7 +293,7 @@ const verifyUserLogin = async (email,password)=>{
         }
         if(await bcrypt.compare(password,user.password)){
             // creating a JWT token
-            token = jwt.sign({id:user._id,username:user.email,type:'user'},JWT_SECRET)
+            token = jwt.sign({id:user._id,username:user.email,type:'user'},JWT_SECRET,{ expiresIn: '2h'})
             return {status:'ok',data:token}
         }
         return {status:'error',error:'invalid password'}
